@@ -13,20 +13,58 @@
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  You’ve used 815 GB of your storage
-
-  185 GB Left
-  
-  0 GB
-  1000 GB
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+<main>
+  <div class="selection">
+    <img src="images/logo.svg" alt="logo" id="logo">
+    <div class="icones">
+      <a href="#">
+        <div class="icone">
+          <img src="images/icon-document.svg" alt="document">
+        </div>
+      </a>
+      <a href="#">
+        <div class="icone">
+          <img src="images/icon-folder.svg" alt="folder">
+        </div>
+      </a>
+      <a href="#">
+        <div class="icone">
+          <img src="images/icon-upload.svg" alt="icon-upload">
+        </div>
+      </a>
+    </div>    
   </div>
+
+  <div class="loading">
+    <p>You’ve used <span class="gb-used"><span id="gb-used">815</span> GB</span> of your storage</p>
+    <input type="range" min="0" max="1000" value="815" step="5" class="slider" id="slider" name="slider">
+    <span class="zero-gb">0 GB</span><span class="total-gb">1000 GB</span>
+    <div class="gb-left-encart"><span class="gb-left" id="gb-left">185</span> GB Left</div>
+  </div>
+
+  
+</main>  
+<footer class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. <br>
+  Coded by <a href="https://www.thomasmalice.be">Thomas Malice</a>.
+</footer>
 </body>
+<script>
+  var slider = document.getElementById("slider");
+  var gbUsed = document.getElementById("gb-used");
+  var gbleft = document.getElementById("gb-left");
+
+  gbUsed.textContent = slider.value; // Display the default slider value
+
+  slider.oninput = function() {
+    gbUsed.innerHTML = this.value;
+    gbleft.innerHTML = 1000-this.value;
+}
+
+
+</script>
 </html>
